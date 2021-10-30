@@ -18,7 +18,7 @@ class QRCodeGeneratorAPIView(APIView):
                 else:
                     size = 200
                 code_url = generateQRCode(settings.BASE_DIR, text, size)
-                return Response({'code_url': code_url}, status=HTTP_200_OK)
+                return Response({'code_url': 'media/'+code_url}, status=HTTP_200_OK)
             else:
                 return Response({'error': 'text is required'}, status=HTTP_400_BAD_REQUEST)
         except Exception as e:
